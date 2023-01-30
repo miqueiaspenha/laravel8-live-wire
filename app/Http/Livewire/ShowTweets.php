@@ -27,10 +27,13 @@ class ShowTweets extends Component
     {
         $this->validate();
 
-        Tweet::create([
+        auth()->user()->tweets()->create([
             'content' => $this->content,
-            'user_id' => 1,
         ]);
+        // Tweet::create([
+        //     'content' => $this->content,
+        //     'user_id' => 1,
+        // ]);
 
         $this->content = '';
     }
